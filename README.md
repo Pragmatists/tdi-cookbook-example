@@ -14,4 +14,4 @@ to get the dependencies.
 There are three tests, each representing a different type.
   1. [webserver_spec.rb](spec\webserver_spec.rb), which is a unit test for our cookbook. It will catch errors like not creating a resource or a wrong path. Run with `rspec`
   2. [webserver_integration_spec.rb](test\integration\default\serverspec\localhost\webserver_integration_spec.rb) - it's an integration test. It runs on a provisioned infrastructure and verifies the server state with serverspec. Run with `kitchen verify`
-    3. [readable_services.feature](features\readable_services.feature) is a Cucumber spec automated so that it will provision the infrastructure with our cookbook and test "from the outside" weather it works as expected. Run with `cucumber`
+  3. [readable_services.feature](features\readable_services.feature) is a Cucumber spec automated so that it will provision the infrastructure with our cookbook and test "from the outside" weather it works as expected. Run with `cucumber`

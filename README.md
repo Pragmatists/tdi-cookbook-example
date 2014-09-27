@@ -1,42 +1,17 @@
-# wonderstuff-cookbook
+This is an example of test-driven cookbook from [Test-Driven Infrastructure with Chef, 2nd edition](http://shop.oreilly.com/product/0636920030973.do). I fixed/adjusted some details to have this working.
 
-TODO: Enter the cookbook description here.
+To run you need the following tools installed:
+  * [Vagrant](http://www.vagrantup.com/)
+  * [VirtualBox](https://www.virtualbox.org/)
+  * [Chef Development Kit](http://downloads.getchef.com/chef-dk/)
 
-## Supported Platforms
-
-TODO: List your supported platforms.
-
-## Attributes
-
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['wonderstuff']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
-
-## Usage
-
-### wonderstuff::default
-
-Include `wonderstuff` in your node's `run_list`:
-
-```json
-{
-  "run_list": [
-    "recipe[wonderstuff::default]"
-  ]
-}
+After cloning, please run
 ```
+bundle install
+```
+to get the dependencies.
 
-## License and Authors
-
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+There are three tests, each representing a different type.
+  1. [webserver_spec.rb](spec\webserver_spec.rb), which is a unit test for our cookbook. It will catch errors like not creating a resource or a wrong path. Run with `rspec`
+  2. [webserver_integration_spec.rb](test\integration\default\serverspec\localhost\webserver_integration_spec.rb) - it's an integration test. It runs on a provisioned infrastructure and verifies the server state with serverspec. Run with `kitchen verify`
+    3. [readable_services.feature](features\readable_services.feature) is a Cucumber spec automated so that it will provision the infrastructure with our cookbook and test "from the outside" weather it works as expected. Run with `cucumber`

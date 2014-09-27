@@ -1,4 +1,5 @@
 require 'chefspec'
+require 'chefspec/berkshelf'
 require 'rspec/expectations'
 
 describe "wonderstuff::default" do
